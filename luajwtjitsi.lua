@@ -18,7 +18,7 @@ local function verifyRS (data, signature, key, algo)
 	if pubkey == nil then
 		return nil, 'Not a public PEM key'
 	else
-		return pubkey:verify(signature, digest.new(key, algo):update(data))
+		return pubkey:verify(signature, digest.new(algo):update(data))
 	end
 end
 
